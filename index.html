@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporary Email Service</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        input, button { padding: 10px; font-size: 16px; margin-top: 10px; }
+        .temp-email { font-weight: bold; color: #2c3e50; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Temporary Email Generator</h1>
+    <p>Generate a temporary email address to use online.</p>
+    <input type="text" id="custom-domain" placeholder="Enter your domain (e.g., example.com)">
+    <button onclick="generateTempEmail()">Generate Email</button>
+    <div id="result" class="temp-email"></div>
+
+    <script>
+        function generateTempEmail() {
+            const domain = document.getElementById('custom-domain').value.trim();
+            if (domain) {
+                // Create a temporary email by adding a unique timestamp
+                const tempEmail = `temp-${Date.now()}@${domain}`;
+                document.getElementById('result').textContent = `Your temporary email: ${tempEmail}`;
+            } else {
+                alert('Please enter a valid domain.');
+            }
+        }
+    </script>
+</body>
+</html>
